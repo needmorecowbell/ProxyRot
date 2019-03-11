@@ -1,0 +1,2 @@
+beautifulsoup4==4.6.3
+fake_useragent==0.1.11
