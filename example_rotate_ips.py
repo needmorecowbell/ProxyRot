@@ -1,6 +1,8 @@
 from proxyrot import ProxyRot
 
-pr = ProxyRot(password="trexxoASD")
+torpass=""
+pr = ProxyRot(password=torpass)
+
 
 print("Original IP: "+ pr.get_ip())
 for x in range(0,5):
