@@ -10,6 +10,7 @@ def main():
     parser.add_argument("-p", "--pswd", dest="pswd",
                     help="password for tor server")
 
+    parser.add_argument("-c", "--ctry", help="country mode", action="store_true")
 
     parser.add_argument("url", help="url to grab")
 
@@ -31,7 +32,20 @@ def main():
 
         if(response is not None):
             print(response.content)
-
+    elif(args.ctry):
+        if(args.verbose):
+            print("Generating Proxy Dictionary by country")
+        
+        pr = ProxyRot()
+        proxies = pr.scrape_proxies_country()
+        for country, ctry_proxies in proxies.items():
+            print("Country: "+country)
+            for proxy in ctry_proxies:
+                for key, val in proxy.items():
+                    if(key =="prx"):
+                        print("\tAddress: "+val)
+                    if(key == "type"):
+                        print("\tType: "+val)
 
 
 
